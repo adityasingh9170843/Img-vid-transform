@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 import { auth } from '@clerk/nextjs/server';
 
-// Configuration
+
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
         )
 
     } catch (error) {
-        console.log("UPload image failed", error)
+        console.log("Upload image failed", error)
         return NextResponse.json({error: "Upload image failed"}, {status: 500})
     }
 
