@@ -129,8 +129,8 @@ export default function SocialShare() {
     <div className="min-h-screen w-full bg-[#0f0c29] bg-gradient-to-tr from-[#24243e] via-[#0f0c29] to-[#0f0c29] text-white">
       <div className="container mx-auto p-4 sm:p-6 lg:p-8 max-w-5xl">
         <header className="text-center mb-10">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500">
-            Social Media Image Creator
+          <h1 className="text-4xl p-8 sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500">
+            Upload Image and transform as needed
           </h1>
           <p className="mt-2 text-lg text-gray-400">
             Effortlessly resize and format your images for any social platform.
