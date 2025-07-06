@@ -27,23 +27,27 @@ function Page() {
     fetchVideos();
   }, [fetchVideos]);
 
-  const handleDownload = useCallback((url: string, title: string) => {
-    return () => {
+  const handleDownload = useCallback(async (url: string, title: string) => {
+    
+      const response = await fetch(url);
+      const blob = await response.blob();
+
       const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `${title}.mp4`);
-      link.setAttribute("target", "_blank");
+      link.href = window.URL.createObjectURL(blob);
+      
+      link.download = `${title}.mp4`; 
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    };
+      window.URL.revokeObjectURL(link.href); 
+     
   }, []);
 
   return (
     <div className="min-h-screen bg-[#0f0c29] bg-gradient-to-tr from-[#24243e] via-[#0f0c29] to-[#0f0c29] text-white py-10 px-4">
       <div className="max-w-6xl mx-auto">
         <header className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500">
+          <h1 className="text-4xl p-3 sm:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500">
             Browse Uploaded Videos
           </h1>
           <p className="mt-2 text-gray-400 text-lg">
@@ -63,7 +67,11 @@ function Page() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {videos.map((video) => (
-            <VideoCard key={video.id} video={video} onDownload={handleDownload} />
+            <VideoCard
+              key={video.id}
+              video={video}
+              onDownload={handleDownload}
+            />
           ))}
         </div>
       </div>

@@ -10,7 +10,7 @@ dayjs.extend(realtiveTime)
 
 interface VideoCardProps {
     video: any;
-    onDownload: (url: string, title: string) => void;
+    onDownload: any
 }
 
 const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
@@ -135,10 +135,8 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
                 <span className="text-accent">{compressionPercentage}%</span>
               </div>
               <button
-                className="btn btn-primary btn-sm"
-                onClick={() =>
-                  onDownload(getFullVideoUrl(video.publicId), video.title)
-                }
+                className="btn btn-primary btn-sm cursor-pointer"
+                onClick={() => onDownload(getFullVideoUrl(video.publicId), video.title)}
               >
                 <Download size={16} />
               </button>

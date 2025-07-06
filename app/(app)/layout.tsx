@@ -1,10 +1,11 @@
 
+import Navbar from '@/components/Navbar'
 import React from 'react'
 
 function layout({children}:any) {
   return (
     <div >
-      Navbar
+      <Navbar />
         {children}
     </div>
   )
