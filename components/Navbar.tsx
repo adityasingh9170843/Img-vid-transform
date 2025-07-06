@@ -15,7 +15,7 @@ import {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Social Share", href: "/social-share" },
+  { label: "Transform Image", href: "/social-share" },
   { label: "Video Upload", href: "/video-upload" },
   { label: "Add Effetcts", href: "/add-effects" },
   { label: "Background Fill", href: "/bg-fill" },
